@@ -79,23 +79,20 @@ cd [your-repo-folder]
 ```
 3️⃣ Install dependencies
 ```bash
-Copy
-Edit
+
 pip install -r requirements.txt
 ```
 OR
 
 ```bash
-Copy
-Edit
+
 pip install google-generativeai python-dotenv Flask flask-cors
 ```
 4️⃣ Configure API key
 Create a .env file in the root folder:
 
 ```bash
-Copy
-Edit
+
 GEMINI_API_KEY=YOUR_API_KEY_HERE
 ```
 5️⃣ Run the backend
@@ -139,6 +136,3 @@ Sachin: UI/UX Design, Front-End
 This project is purely for fun.
 No Ammavans were emotionally harmed in the making of this app. 😄
 
-yaml
-Copy
-Edit
