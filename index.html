@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>അമ്മാവൻ ഉപദേശ ഓതെൻ്റിക്കേറ്റർ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body Styling */
+        body { 
+            font-family: 'Manjari', sans-serif; 
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #FFFBEB, #F3F9E3); /* Soft yellow to light green gradient */
+            color: #3D405B; /* Dark, muted blue for text */
+        }
+
+        /* The Main Container Card */
+        .container {
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Title Styling */
+        h1 {
+            color: #2E4F4F; /* Deep teal color */
+            font-weight: 700;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        /* Subtitle Styling */
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        /* Input Area Styling */
+        .input-group {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+        .input-group label {
+            font-weight: 700;
+            font-size: 1.2em;
+            color: #2E4F4F;
+            margin-bottom: 10px;
+            display: block;
+        }
+        textarea { 
+            width: 95%; 
+            height: 120px; 
+            font-size: 18px; 
+            padding: 15px; 
+            border-radius: 12px;
+            border: 2px solid #E0E0E0;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #077D71; /* A vibrant teal */
+        }
+
+        /* Button Styling */
+        button { 
+            font-size: 20px; 
+            padding: 15px 30px; 
+            cursor: pointer; 
+            background-color: #077D71;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Manjari', sans-serif;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(7, 125, 113, 0.2);
+        }
+        button:hover {
+            background-color: #06645A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(7, 125, 113, 0.3);
+        }
+
+        /* Loader Animation */
+        #loader { display: none; margin-top: 30px; }
+        .dots { display: flex; justify-content: center; }
+        .dots div { width: 12px; height: 12px; background: #077D71; border-radius: 50%; margin: 0 5px; animation: bounce 1.4s infinite ease-in-out both; }
+        .dots .dot1 { animation-delay: -0.32s; }
+        .dots .dot2 { animation-delay: -0.16s; }
+        @keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1.0); } }
+
+        /* Results Box Styling */
+        #result { 
+            display: none;
+            margin-top: 30px; 
+            padding: 25px; 
+            border-top: 4px solid #077D71;
+            text-align: left; 
+            background-color: #F8F9FA;
+            border-radius: 12px;
+        }
+        #result h3 { margin-top: 0; font-size: 1.4em; color: #2E4F4F;}
+        #result p { font-size: 1.1em; line-height: 1.6; }
+        #result strong { color: #077D71; }
+
+        /* Footer Styling */
+        .footer {
+            margin-top: 40px;
+            color: #aaa;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>അമ്മാവൻ ഉപദേശ ഓതെൻ്റിക്കേറ്റർ 🧠👴</h1>
+        <p class="subtitle">ജീവിതം മാറ്റിമറിക്കുന്ന ഉപദേശമോ, അതോ വെറും പഴയകാല തള്ളലോ? ഞങ്ങളുടെ AI തീരുമാനിക്കട്ടെ!</p>
+
+        <div class="input-group">
+            <label for="adviceInput">👴 അമ്മവൻ പറഞ്ഞു:</label>
+            <textarea id="adviceInput" placeholder="ലഭിച്ച ഉപദേശം ഇവിടെ മലയാളത്തിൽ ടൈപ്പ് ചെയ്യുക..."></textarea>
+        </div>
+        
+        <button id="analyzeBtn" onclick="getAnalysis()">വിശകലനം ചെയ്യുക ✨</button>
+
+        <div id="loader">
+            <div class="dots">
+                <div class="dot1"></div>
+                <div class="dot2"></div>
+                <div class="dot3"></div>
+            </div>
+        </div>
+
+        <div id="result"></div>
+        
+        <div class="footer">
+            Made with pazham pori & sarcasm in Kerala 🍌❤️
+        </div>
+    </div>
+
+    <script>
+        const adviceInput = document.getElementById('adviceInput');
+        const analyzeBtn = document.getElementById('analyzeBtn');
+        const resultDiv = document.getElementById('result');
+        const loader = document.getElementById('loader');
+
+        async function getAnalysis() {
+            const adviceText = adviceInput.value;
+            if (!adviceText.trim()) {
+                alert('വിശകലനം ചെയ്യാൻ ഉപദേശം നൽകുക!');
+                return;
+            }
+
+            // Disable button and show loader
+            analyzeBtn.disabled = true;
+            analyzeBtn.innerText = "അനലൈസ് ചെയ്യുന്നു...";
+            resultDiv.style.display = 'none';
+            loader.style.display = 'block';
+
+            try {
+                const response = await fetch('http://127.0.0.1:8080/analyze', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ advice_text: adviceText }) 
+                });
+
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+                const data = await response.json();
+                
+                loader.style.display = 'none';
+                resultDiv.style.display = 'block';
+                
+                resultDiv.innerHTML = `
+                    <h3>വിശകലനം പൂർത്തിയായി:</h3>
+                    <p><strong>തരം:</strong> ${data.classification}</p>
+                    <p><strong>കൃത്യത:</strong> ${data.confidence}</p>
+                    <p><strong>ശുപാർശ ചെയ്യുന്ന പ്രതികരണം:</strong> ${data.recommended_action}</p>
+                    <br>
+                    <button onclick="resetApp()">വേറൊരെണ്ണം ശ്രമിക്കാം</button> 
+                `; // Added a reset button for better UX
+            } catch (error) {
+                loader.style.display = 'none';
+                alert('ഒരു പിശക് സംഭവിച്ചു. നിങ്ങളുടെ Python ബാക്കെൻഡ് പ്രവർത്തിക്കുന്നുണ്ടോ എന്ന് പരിശോധിക്കുക.');
+                console.error('Error:', error);
+                resetApp(); // Reset the UI on error
+            }
+        }
+
+        // A new function to reset the interface
+        function resetApp() {
+            adviceInput.value = '';
+            resultDiv.style.display = 'none';
+            analyzeBtn.disabled = false;
+            analyzeBtn.innerText = "വിശകലനം ചെയ്യുക ✨";
+        }
+    </script>
+
+</body>
+</html>
