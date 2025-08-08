@@ -1,90 +1,78 @@
-Ammavan Advice Authenticator 🧠👴
-Basic Details
-Team Name: [Team Pazham Pori] Team Members
+# 🧠👴 Ammavan Advice Authenticator
 
-Team Lead: SACHIN K S - COCHIN UNIVERSITY OF SCIENCE AND TECHNOLOGY
-Member 2: ROHITH R - COCHIN UNIVERSITY OF SCIENCE AND TECHNOLOGY
+> *"Because unsolicited wisdom deserves AI-powered sarcasm."*
 
-Project Description
-The Ammavan Advice Authenticator is a satirical web application that uses Google's state-of-the-art Gemini AI to analyze unsolicited advice, typically received from Keralite uncles ("Ammavans"). Users can either type or speak the advice directly into the app, which then provides a sarcastic classification and a recommended passive-aggressive response.
+---
 
-The Problem (that doesn't exist)
-Every year, countless hours of productive chai-sipping and pazham pori-eating are momentarily disrupted by the critical social dilemma of receiving unsolicited advice at family functions. This barrage of well-meaning but often cliché wisdom has, until now, gone unaddressed by modern technology, leaving the youth of Kerala to fend for themselves with only polite nods and awkward smiles.
+## 📌 Basic Details
 
-The Solution (that nobody asked for)
-We have developed an over-engineered, cloud-based, AI-powered platform to tackle this non-issue head-on. It features a voice-activated interface, allowing users to verbally input "Ammavan" wisdom for real-time analysis. Our solution leverages the power of Large Language Models to decode this unsolicited wisdom, empowering users with a detailed analysis and a sarcastic, passive-aggressive escape plan to navigate these conversations.
+**Team Name:** Team Pazham Pori 🍌🍵
 
-Technical Details
-Technologies/Components Used
-For Software:
+**Team Members:**
+- **Team Lead:** Sachin K S – *COCHIN UNIVERSITY OF SCIENCE AND TECHNOLOGY*
+- **Member 2:** Rohith R – *COCHIN UNIVERSITY OF SCIENCE AND TECHNOLOGY*
 
-Languages Used: Python, HTML5, CSS3, JavaScript
+---
 
-Frameworks & APIs: Flask, Google Gemini API, Web Speech API (for browser-based Speech-to-Text)
+## 🎯 Project Description
 
-Libraries Used: google-generativeai, python-dotenv
+The **Ammavan Advice Authenticator** is a satirical web application that uses Google's state-of-the-art **Gemini AI** to analyze unsolicited advice, typically received from Keralite uncles ("Ammavans").  
 
-Tools Used: Visual Studio Code, Git, Google AI Studio
+Users can type or speak the advice directly into the app, which then provides:
+1. A **sarcastic classification** of the wisdom  
+2. A **passive-aggressive response** to use at the next family gathering  
 
-For Hardware:
+---
 
-Not Applicable for this project.
+## 🤔 The Problem (that doesn’t exist)
 
-Implementation
-For Software:
-Installation
+Every year, countless hours of productive **chai-sipping** and **pazham pori-eating** are disrupted by unsolicited advice at family functions. This wisdom, while heartfelt, often feels like recycled content from the 80s.  
 
-Clone the repository:
+Until now, no modern tech solution has existed to *decode*, *classify*, and *combat* these conversations… politely.
 
-Bash
+---
 
+## 💡 The Solution (that nobody asked for)
+
+We built a **cloud-based, AI-powered, voice-enabled** sarcasm generator for Ammavan quotes.  
+- **Voice-activated interface** using Web Speech API 🎙️  
+- **Real-time AI analysis** via Google Gemini  
+- **Passive-aggressive comeback suggestions** so you can escape gracefully  
+
+---
+
+## 🛠️ Technical Details
+
+### **Technologies / Components**
+
+**Languages:**  
+- Python  
+- HTML5, CSS3, JavaScript  
+
+**Frameworks & APIs:**  
+- Flask  
+- Google Gemini API  
+- Web Speech API (browser-based Speech-to-Text)  
+
+**Libraries:**  
+- `google-generativeai`  
+- `python-dotenv`  
+- `flask`  
+- `flask-cors`  
+
+**Tools:**  
+- Visual Studio Code  
+- Git & GitHub  
+- Google AI Studio  
+
+**Hardware:**  
+- None (pure software magic ✨)  
+
+---
+
+## 🚀 Installation & Setup
+
+### 1️⃣ Clone the repository
+```bash
 git clone [your-repo-link]
 cd [your-repo-folder]
-Create and activate a virtual environment (using Python 3.9+):
-
-Bash
-
-python -m venv venv
-venv\Scripts\activate
-Install the required packages:
-
-Bash
-
-pip install -r requirements.txt
-(Or pip install google-generativeai python-dotenv Flask Flask-Cors)
-
-Create a .env file in the root directory and add your Gemini API key:
-
-GEMINI_API_KEY=YOUR_API_KEY_HERE
-Run
-
-Start the Flask backend server:
-
-Bash
-
-python app.py
-Open the frontend by double-clicking the index.html file in your web browser. When prompted, allow the browser to access your microphone to use the voice feature.
-
-Project Documentation
-For Software:
-Screenshots (Add at least 3)
-
-The main interface, featuring options for both text and voice input.
-
-The AI is deep in thought, processing the cliché with its advanced neural networks.
-
-The final, sarcastically generated analysis and recommended course of action, delivered with confidence.
-
-Diagrams
-
-Application workflow: The user can either type or speak the advice. If spoken, the browser's Web Speech API transcribes it to text. The text is then sent from the frontend to the Flask backend. The backend constructs a prompt, gets a JSON response from the Gemini API, and returns the formatted result to be displayed on the webpage.
-
-Project Demo
-Video
-
-[Add your demo video link here]
-A walkthrough of the application, demonstrating a user entering advice via both text and voice and receiving a sarcastic, AI-generated analysis in real-time.
-
-Team Contributions
-Sachin:[UI/UX Design,Front-End]
-Rohith: [AI Prompt Engineering,Voice Interface Integration]
